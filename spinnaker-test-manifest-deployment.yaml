@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spinnaker-test-manifest-nginx-deployment
+  namespace: spinnaker-test-manifest
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+          - containerPort: 80
+          volumeMounts:
+            - name: spinnaker-test-manifest-configmap-volume
+              mountPath: /usr/share/nginx/html/index.html
+              subPath: index.html
+      volumes:
+        - name: spinnaker-test-manifest-configmap-volume
+          configMap:
+            name: spinnaker-test-manifest-configmap

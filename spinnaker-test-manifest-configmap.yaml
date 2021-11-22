@@ -4,4 +4,9 @@ metadata:
   namespace: spinnaker-test-manifest
   name: spinnaker-test-manifest-configmap
 data:
-  some_value: Hi
+  index.html: |
+    <html>
+    <body>
+    <h1>Hi, Spinnaker!</h1>
+    </body>
+    </html>
