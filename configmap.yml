@@ -4,4 +4,4 @@ metadata:
   namespace: spinnaker-test-manifest
   name: spinnaker-test-manifest-configmap
 data:
-  some_value: hi
+  some_value: Hi
